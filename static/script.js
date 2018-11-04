@@ -1,16 +1,16 @@
-var map, geojson, layer_a, polygon;
+var map;
 var estate = new Array();
 
-function getColor(d) {
+/*function getColor(d) {
     return d == "Nordeste" ? '#800026' : 
         d == "Sudeste" ? '#BD0026' : 
         d == "Norte" ? '#E31A1C' : 
         d == "Sul" ? '#FC4E2A' : 
-        //d > 10 ? '#FD8D3C' : 
-        //d > 05 ? '#FEB24C' : 
-        //d > 0 ? '#FED976' : 
+        d > 10 ? '#FD8D3C' : 
+        d > 05 ? '#FEB24C' : 
+        d > 0 ? '#FED976' : 
         '#FFEDA0'; 
-}
+}*/
 
 function style(color) { 
     return { 
@@ -21,14 +21,6 @@ function style(color) {
         dashArray: '3', 
         fillOpacity: 0.7 
     }; 
-}
-
-function popup(feature, layer) { 
-    layer_a = layer;
-    if (feature.properties && feature.properties.NOME_UF) 
-    { 
-        layer.bindPopup(feature.properties.NOME_UF);
-    } 
 }
 
 function fill_estates_map(data) {
@@ -45,8 +37,7 @@ $(document).ready(function() {
 
     L.esri.basemapLayer('Topographic').addTo(map);
 
-    //L.control.scale().addTo(map);
-    L.marker([-15.7801, -47.9292],{draggable: false}).addTo(map).bindPopup("Brasília");
+    //L.marker([-15.7801, -47.9292],{draggable: false}).addTo(map).bindPopup("Brasília");
 
     // Pinta os estados no mapa
     $.getJSON("/retrieve_estates").done(function(data) {
