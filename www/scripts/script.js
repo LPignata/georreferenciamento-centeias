@@ -12,9 +12,9 @@ function getColor(d) {
         '#FFEDA0'; 
 }
 
-function style(feature) { 
+function style(color) { 
     return { 
-        fillColor: getColor(feature.properties.REGIAO), 
+        fillColor: color, 
         weight: 2, 
         opacity: 1, 
         color: 'white', 
@@ -32,16 +32,10 @@ function popup(feature, layer) {
 }
 
 function fill_estates_map(data) {
-    /*geojson = L.geoJson(estates, { 
-        style: style, onEachFeature: popup 
-    }).addTo(map);
-    console.log(geojson);*/
     data.features.forEach(element => {
-        //uf = element.properties.UF_05;
+        uf = element.properties.UF_05;
         coordinates = element.geometry.coordinates;
-        console.log(L.GeoJSON.coordsToLatLng(coordinates));
-        /*estate[uf] =*/ L.polygon(coordinates).addTo(map);
-        console.log(element);
+        estate[uf] = L.polygon(coordinates).setStyle(style("#000")).addTo(map);
     });
 }
 
