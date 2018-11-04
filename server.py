@@ -17,8 +17,8 @@ def retrieve_news():
     j = r.json()    
     return (jsonify(j))
 
-@app.route('/hello/')
+@app.route('/')
 def hello(name=None):
     return render_template('index.html')
 
-app.run(debug = True)    
+app.run(debug = True, port = 80)    

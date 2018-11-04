@@ -49,7 +49,7 @@ $(document).ready(function() {
     L.marker([-15.7801, -47.9292],{draggable: false}).addTo(map).bindPopup("Brasília");
 
     // Pinta os estados no mapa
-    $.getJSON('http://127.0.0.1:5000/retrieve_estates').done(function(data) {
+    $.getJSON("/retrieve_estates").done(function(data) {
         fill_estates_map(data);
     });
 });
