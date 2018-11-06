@@ -1,0 +1,726 @@
+{
+	"countries": [{
+		"countrie": "Aruba",
+		"coordinates": [12.5208803838, -69.9826771125]
+	}, {
+		"countrie": "Afghanistan",
+		"coordinates": [33.8352307278, 66.0047336558]
+	}, {
+		"countrie": "Angola",
+		"coordinates": [-12.2933605438, 17.5373676815]
+	}, {
+		"countrie": "Anguilla",
+		"coordinates": [18.2239595023, -63.0649892654]
+	}, {
+		"countrie": "Albania",
+		"coordinates": [41.1424498947, 20.0498339611]
+	}, {
+		"countrie": "Aland",
+		"coordinates": [60.2148868756, 19.953287676]
+	}, {
+		"countrie": "Andorra",
+		"coordinates": [42.5422910219, 1.56054377918]
+	}, {
+		"countrie": "United Arab Emirates",
+		"coordinates": [23.9052818785, 54.3001671016]
+	}, {
+		"countrie": "Argentina",
+		"coordinates": [-35.3813487953, -65.179806925]
+	}, {
+		"countrie": "Armenia",
+		"coordinates": [40.2895256919, 44.9299327564]
+	}, {
+		"countrie": "American Samoa",
+		"coordinates": [-14.3044599708, -170.718025746]
+	}, {
+		"countrie": "Antarctica",
+		"coordinates": [-80.5085791311, 19.9210895122]
+	}, {
+		"countrie": "Ashmore and Cartier Is.",
+		"coordinates": [-12.4299316406, 123.583837891]
+	}, {
+		"countrie": "Fr. S. Antarctic Lands",
+		"coordinates": [-49.2489548494, 69.2266675845]
+	}, {
+		"countrie": "Antigua and Barb.",
+		"coordinates": [17.2774995986, -61.794693427]
+	}, {
+		"countrie": "Australia",
+		"coordinates": [-25.7328870417, 134.491000082]
+	}, {
+		"countrie": "Austria",
+		"coordinates": [47.585494392, 14.1264760996]
+	}, {
+		"countrie": "Azerbaijan",
+		"coordinates": [40.2882723471, 47.5459987892]
+	}, {
+		"countrie": "Burundi",
+		"coordinates": [-3.35939665747, 29.8751215645]
+	}, {
+		"countrie": "Belgium",
+		"coordinates": [50.6398157556, 4.64065113918]
+	}, {
+		"countrie": "Benin",
+		"coordinates": [9.64175970225, 2.32785254449]
+	}, {
+		"countrie": "Burkina Faso",
+		"coordinates": [12.2695384574, -1.75456600914]
+	}, {
+		"countrie": "Bangladesh",
+		"coordinates": [23.86731158, 90.2381274323]
+	}, {
+		"countrie": "Bulgaria",
+		"coordinates": [42.7689031797, 25.2155290863]
+	}, {
+		"countrie": "Bahrain",
+		"coordinates": [26.0420513477, 50.5419693232]
+	}, {
+		"countrie": "Canada",
+		"coordinates": [61.3620632437, -98.3077702819]
+	}, {
+		"countrie": "Bahamas",
+		"coordinates": [24.2903670223, -76.6284303802]
+	}, {
+		"countrie": "Bosnia and Herz.",
+		"coordinates": [44.1745012472, 17.7687673323]
+	}, {
+		"countrie": "St-BarthÃ©lemy",
+		"coordinates": [17.8988045112, -62.8406777884]
+	}, {
+		"countrie": "Belarus",
+		"coordinates": [53.5313137685, 28.0320930703]
+	}, {
+		"countrie": "Belize",
+		"coordinates": [17.2002750902, -88.7101048564]
+	}, {
+		"countrie": "Bermuda",
+		"coordinates": [32.3136780208, -64.7545588982]
+	}, {
+		"countrie": "Bolivia",
+		"coordinates": [-16.7081478725, -64.6853864515]
+	}, {
+		"countrie": "Brazil",
+		"coordinates": [-10.7877770246, -53.0978311267]
+	}, {
+		"countrie": "Barbados",
+		"coordinates": [13.1814542822, -59.5597970021]
+	}, {
+		"countrie": "Brunei",
+		"coordinates": [4.51968957503, 114.722030354]
+	}, {
+		"countrie": "Bhutan",
+		"coordinates": [27.4110658858, 90.4018815525]
+	}, {
+		"countrie": "Botswana",
+		"coordinates": [-22.1840321328, 23.7985336773]
+	}, {
+		"countrie": "Central African Rep.",
+		"coordinates": [6.56823297048, 20.4682683098]
+	}, {
+		"countrie": "Switzerland",
+		"coordinates": [46.7978587836, 8.20867470615]
+	}, {
+		"countrie": "Chile",
+		"coordinates": [-37.730709893, -71.3825621318]
+	}, {
+		"countrie": "China",
+		"coordinates": [36.5617654559, 103.81907349]
+	}, {
+		"countrie": "CÃ´te d'Ivoire",
+		"coordinates": [7.62842620235, -5.5692156998]
+	}, {
+		"countrie": "Cameroon",
+		"coordinates": [5.69109848986, 12.7396415575]
+	}, {
+		"countrie": "Dem. Rep. Congo",
+		"coordinates": [-2.8774628897, 23.643961066]
+	}, {
+		"countrie": "Congo",
+		"coordinates": [-0.837874631184, 15.2196576195]
+	}, {
+		"countrie": "Cook Is.",
+		"coordinates": [-21.2192728815, -159.787242185]
+	}, {
+		"countrie": "Colombia",
+		"coordinates": [3.91383430725, -73.0811458241]
+	}, {
+		"countrie": "Comoros",
+		"coordinates": [-11.8778344355, 43.6825396848]
+	}, {
+		"countrie": "Cape Verde",
+		"coordinates": [15.9552332421, -23.9598882026]
+	}, {
+		"countrie": "Costa Rica",
+		"coordinates": [9.9763446384, -84.1920876775]
+	}, {
+		"countrie": "Cuba",
+		"coordinates": [21.6228952793, -79.0160538445]
+	}, {
+		"countrie": "CuraÃ§ao",
+		"coordinates": [12.1955167546, -68.971193688]
+	}, {
+		"countrie": "Cayman Is.",
+		"coordinates": [19.4289649722, -80.9121332147]
+	}, {
+		"countrie": "N. Cyprus",
+		"coordinates": [35.2627748562, 33.5684812974]
+	}, {
+		"countrie": "Cyprus",
+		"coordinates": [34.916672112, 33.0060021957]
+	}, {
+		"countrie": "Czech Rep.",
+		"coordinates": [49.7334123295, 15.3124016281]
+	}, {
+		"countrie": "Germany",
+		"coordinates": [51.1069818075, 10.385780508]
+	}, {
+		"countrie": "Djibouti",
+		"coordinates": [11.7487180559, 42.5606754026]
+	}, {
+		"countrie": "Dominica",
+		"coordinates": [15.4394702029, -61.3577259987]
+	}, {
+		"countrie": "Denmark",
+		"coordinates": [55.9812529593, 10.0280099191]
+	}, {
+		"countrie": "Dominican Rep.",
+		"coordinates": [18.8943308233, -70.5056889612]
+	}, {
+		"countrie": "Algeria",
+		"coordinates": [28.1589384945, 2.6173230092]
+	}, {
+		"countrie": "Ecuador",
+		"coordinates": [-1.42381612488, -78.752019225]
+	}, {
+		"countrie": "Egypt",
+		"coordinates": [26.4959331064, 29.8619009908]
+	}, {
+		"countrie": "Eritrea",
+		"coordinates": [15.361866184, 38.8461701125]
+	}, {
+		"countrie": "Spain",
+		"coordinates": [40.2444869811, -3.64755047323]
+	}, {
+		"countrie": "Estonia",
+		"coordinates": [58.6719297173, 25.5424853656]
+	}, {
+		"countrie": "Ethiopia",
+		"coordinates": [8.6227867931, 39.6008009763]
+	}, {
+		"countrie": "Finland",
+		"coordinates": [64.4988460349, 26.2746656042]
+	}, {
+		"countrie": "Fiji",
+		"coordinates": [-17.4285803175, 165.451954318]
+	}, {
+		"countrie": "Falkland Is.",
+		"coordinates": [-51.7448395441, -59.35238956]
+	}, {
+		"countrie": "France",
+		"coordinates": [42.1734401107, -2.76172944519]
+	}, {
+		"countrie": "Faeroe Is.",
+		"coordinates": [62.0538540321, -6.88095423426]
+	}, {
+		"countrie": "Micronesia",
+		"coordinates": [7.45246813659, 153.239437922]
+	}, {
+		"countrie": "Gabon",
+		"coordinates": [-0.586600249551, 11.7886286968]
+	}, {
+		"countrie": "United Kingdom",
+		"coordinates": [54.1238715577, -2.86563164084]
+	}, {
+		"countrie": "Georgia",
+		"coordinates": [42.1685575537, 43.50780252]
+	}, {
+		"countrie": "Guernsey",
+		"coordinates": [49.4680976128, -2.57239063555]
+	}, {
+		"countrie": "Ghana",
+		"coordinates": [7.95345643541, -1.21676565807]
+	}, {
+		"countrie": "Guinea",
+		"coordinates": [10.4362159331, -10.9406661161]
+	}, {
+		"countrie": "Gambia",
+		"coordinates": [13.4496524352, -15.3960129463]
+	}, {
+		"countrie": "Guinea-Bissau",
+		"coordinates": [12.0474494815, -14.9497244459]
+	}, {
+		"countrie": "Eq. Guinea",
+		"coordinates": [1.70555135464, 10.3413792389]
+	}, {
+		"countrie": "Greece",
+		"coordinates": [39.0746962307, 22.9555579369]
+	}, {
+		"countrie": "Grenada",
+		"coordinates": [12.1172504395, -61.6822018889]
+	}, {
+		"countrie": "Greenland",
+		"coordinates": [74.7105128864, -41.34191127]
+	}, {
+		"countrie": "Guatemala",
+		"coordinates": [15.694036635, -90.3648200858]
+	}, {
+		"countrie": "Guam",
+		"coordinates": [13.441656257, 144.76791022]
+	}, {
+		"countrie": "Guyana",
+		"coordinates": [4.79378034012, -58.9820245893]
+	}, {
+		"countrie": "Hong Kong",
+		"coordinates": [22.3982773723, 114.113804542]
+	}, {
+		"countrie": "Heard I. and McDonald Is.",
+		"coordinates": [-53.0872465618, 73.5205171004]
+	}, {
+		"countrie": "Honduras",
+		"coordinates": [14.8268816519, -86.6151660963]
+	}, {
+		"countrie": "Croatia",
+		"coordinates": [45.0804763057, 16.404128994]
+	}, {
+		"countrie": "Haiti",
+		"coordinates": [18.9350256343, -72.6852750899]
+	}, {
+		"countrie": "Hungary",
+		"coordinates": [47.1627750614, 19.3955911607]
+	}, {
+		"countrie": "Indonesia",
+		"coordinates": [-2.21505456346, 117.240113662]
+	}, {
+		"countrie": "Isle of Man",
+		"coordinates": [54.2241891077, -4.53873952326]
+	}, {
+		"countrie": "India",
+		"coordinates": [22.8857821183, 79.6119761026]
+	}, {
+		"countrie": "Indian Ocean Ter.",
+		"coordinates": [-10.6478514973, 104.851897952]
+	}, {
+		"countrie": "Br. Indian Ocean Ter.",
+		"coordinates": [-7.33059750749, 72.4454122854]
+	}, {
+		"countrie": "Ireland",
+		"coordinates": [53.175448704, -8.13793568667]
+	}, {
+		"countrie": "Iran",
+		"coordinates": [32.575032915, 54.2740700448]
+	}, {
+		"countrie": "Iraq",
+		"coordinates": [33.0397058232, 43.7435314888]
+	}, {
+		"countrie": "Iceland",
+		"coordinates": [64.9957538607, -18.5739616708]
+	}, {
+		"countrie": "Israel",
+		"coordinates": [31.4611010118, 35.0044469277]
+	}, {
+		"countrie": "Italy",
+		"coordinates": [42.796626414, 12.0700133907]
+	}, {
+		"countrie": "Jamaica",
+		"coordinates": [18.1569487765, -77.3148259327]
+	}, {
+		"countrie": "Jersey",
+		"coordinates": [49.2183737668, -2.12689937944]
+	}, {
+		"countrie": "Jordan",
+		"coordinates": [31.2457909121, 36.7713610402]
+	}, {
+		"countrie": "Japan",
+		"coordinates": [37.592301353, 138.030895577]
+	}, {
+		"countrie": "Siachen Glacier",
+		"coordinates": [35.3923632479, 77.180118652]
+	}, {
+		"countrie": "Kazakhstan",
+		"coordinates": [48.1568806661, 67.2914935687]
+	}, {
+		"countrie": "Kenya",
+		"coordinates": [0.599880215445, 37.7959397293]
+	}, {
+		"countrie": "Kyrgyzstan",
+		"coordinates": [41.4622194346, 74.5416551329]
+	}, {
+		"countrie": "Cambodia",
+		"coordinates": [12.7200478567, 104.906943249]
+	}, {
+		"countrie": "Kiribati",
+		"coordinates": [0.86001503171, -45.6111051329]
+	}, {
+		"countrie": "St. Kitts and Nevis",
+		"coordinates": [17.2645995047, -62.6875526496]
+	}, {
+		"countrie": "Korea",
+		"coordinates": [36.3852398347, 127.839160864]
+	}, {
+		"countrie": "Kosovo",
+		"coordinates": [42.5707870668, 20.8724981138]
+	}, {
+		"countrie": "Kuwait",
+		"coordinates": [29.3343126157, 47.5870045889]
+	}, {
+		"countrie": "Lao PDR",
+		"coordinates": [18.5021743316, 103.73772412]
+	}, {
+		"countrie": "Lebanon",
+		"coordinates": [33.9230663057, 35.880160715]
+	}, {
+		"countrie": "Liberia",
+		"coordinates": [6.45278491657, -9.3220757269]
+	}, {
+		"countrie": "Libya",
+		"coordinates": [27.0309449491, 18.0086616872]
+	}, {
+		"countrie": "Saint Lucia",
+		"coordinates": [13.8947948145, -60.9696992253]
+	}, {
+		"countrie": "Liechtenstein",
+		"coordinates": [47.1366583545, 9.53574311779]
+	}, {
+		"countrie": "Sri Lanka",
+		"coordinates": [7.61266509224, 80.7010823782]
+	}, {
+		"countrie": "Lesotho",
+		"coordinates": [-29.5800318833, 28.2272313098]
+	}, {
+		"countrie": "Lithuania",
+		"coordinates": [55.3261098445, 23.8871935548]
+	}, {
+		"countrie": "Luxembourg",
+		"coordinates": [49.7672536068, 6.07182201066]
+	}, {
+		"countrie": "Latvia",
+		"coordinates": [56.8508516268, 24.9123598332]
+	}, {
+		"countrie": "Macao",
+		"coordinates": [22.2231168835, 113.509321162]
+	}, {
+		"countrie": "St-Martin",
+		"coordinates": [18.0888861095, -63.0597285144]
+	}, {
+		"countrie": "Morocco",
+		"coordinates": [29.8376295469, -8.45615794798]
+	}, {
+		"countrie": "Monaco",
+		"coordinates": [43.7527462672, 7.40627676856]
+	}, {
+		"countrie": "Moldova",
+		"coordinates": [47.1949880442, 28.4567337241]
+	}, {
+		"countrie": "Madagascar",
+		"coordinates": [-19.3718958677, 46.7047367428]
+	}, {
+		"countrie": "Maldives",
+		"coordinates": [3.72870919988, 73.4571300419]
+	}, {
+		"countrie": "Mexico",
+		"coordinates": [23.9475372406, -102.523451692]
+	}, {
+		"countrie": "Marshall Is.",
+		"coordinates": [7.00376358315, 170.339761224]
+	}, {
+		"countrie": "Macedonia",
+		"coordinates": [41.5953089336, 21.6821134607]
+	}, {
+		"countrie": "Mali",
+		"coordinates": [17.3458158135, -3.54269064851]
+	}, {
+		"countrie": "Malta",
+		"coordinates": [35.9214963221, 14.4052331643]
+	}, {
+		"countrie": "Myanmar",
+		"coordinates": [21.1856659927, 96.4884332104]
+	}, {
+		"countrie": "Montenegro",
+		"coordinates": [42.7889025929, 19.2388393925]
+	}, {
+		"countrie": "Mongolia",
+		"coordinates": [46.8268154394, 103.052997649]
+	}, {
+		"countrie": "N. Mariana Is.",
+		"coordinates": [15.8292756277, 145.619696513]
+	}, {
+		"countrie": "Mozambique",
+		"coordinates": [-17.2738164259, 35.5336754259]
+	}, {
+		"countrie": "Mauritania",
+		"coordinates": [20.257367056, -10.3477981455]
+	}, {
+		"countrie": "Montserrat",
+		"coordinates": [16.7394140553, -62.1851854562]
+	}, {
+		"countrie": "Mauritius",
+		"coordinates": [-20.2776870433, 57.5712055061]
+	}, {
+		"countrie": "Malawi",
+		"coordinates": [-13.2180808806, 34.2893559871]
+	}, {
+		"countrie": "Malaysia",
+		"coordinates": [3.78986845571, 109.697622843]
+	}, {
+		"countrie": "Namibia",
+		"coordinates": [-22.1303256842, 17.209635667]
+	}, {
+		"countrie": "New Caledonia",
+		"coordinates": [-21.299918058, 165.684923735]
+	}, {
+		"countrie": "Niger",
+		"coordinates": [17.4191249296, 9.38545881539]
+	}, {
+		"countrie": "Norfolk Island",
+		"coordinates": [-29.0514609044, 167.949216782]
+	}, {
+		"countrie": "Nigeria",
+		"coordinates": [9.59411452233, 8.08943894771]
+	}, {
+		"countrie": "Nicaragua",
+		"coordinates": [12.8470942896, -85.0305296951]
+	}, {
+		"countrie": "Niue",
+		"coordinates": [-19.0494570813, -169.869946819]
+	}, {
+		"countrie": "Netherlands",
+		"coordinates": [52.1007899002, 5.28144793007]
+	}, {
+		"countrie": "Norway",
+		"coordinates": [68.7501557205, 15.3483465622]
+	}, {
+		"countrie": "Nepal",
+		"coordinates": [28.2489136496, 83.9158264002]
+	}, {
+		"countrie": "Nauru",
+		"coordinates": [-0.519126389522, 166.932568234]
+	}, {
+		"countrie": "New Zealand",
+		"coordinates": [-41.811135569, 171.484923466]
+	}, {
+		"countrie": "Oman",
+		"coordinates": [20.6051533257, 56.0916615483]
+	}, {
+		"countrie": "Pakistan",
+		"coordinates": [29.9497515031, 69.3395793748]
+	}, {
+		"countrie": "Panama",
+		"coordinates": [8.51750797491, -80.1191515612]
+	}, {
+		"countrie": "Pitcairn Is.",
+		"coordinates": [-24.365005346, -128.317042024]
+	}, {
+		"countrie": "Peru",
+		"coordinates": [-9.15280381329, -74.382426851]
+	}, {
+		"countrie": "Philippines",
+		"coordinates": [11.7753677809, 122.883932529]
+	}, {
+		"countrie": "Palau",
+		"coordinates": [7.28742783603, 134.408079655]
+	}, {
+		"countrie": "Papua New Guinea",
+		"coordinates": [-6.46416646083, 145.207447524]
+	}, {
+		"countrie": "Poland",
+		"coordinates": [52.1275956442, 19.3901283493]
+	}, {
+		"countrie": "Puerto Rico",
+		"coordinates": [18.2281305461, -66.4730760435]
+	}, {
+		"countrie": "Dem. Rep. Korea",
+		"coordinates": [40.1535031093, 127.192479732]
+	}, {
+		"countrie": "Portugal",
+		"coordinates": [39.5955067145, -8.50104361268]
+	}, {
+		"countrie": "Paraguay",
+		"coordinates": [-23.228239132, -58.400137032]
+	}, {
+		"countrie": "Palestine",
+		"coordinates": [31.9161389264, 35.1962870549]
+	}, {
+		"countrie": "Fr. Polynesia",
+		"coordinates": [-14.7222740899, -144.904943869]
+	}, {
+		"countrie": "Qatar",
+		"coordinates": [25.3060118763, 51.1847963212]
+	}, {
+		"countrie": "Romania",
+		"coordinates": [45.8524312742, 24.9729303933]
+	}, {
+		"countrie": "Russia",
+		"coordinates": [61.9805220919, 96.6865611231]
+	}, {
+		"countrie": "Rwanda",
+		"coordinates": [-1.99033831693, 29.9198851524]
+	}, {
+		"countrie": "W. Sahara",
+		"coordinates": [24.2295673865, -12.2198275485]
+	}, {
+		"countrie": "Saudi Arabia",
+		"coordinates": [24.1224584073, 44.5368627114]
+	}, {
+		"countrie": "Sudan",
+		"coordinates": [15.9903566856, 29.9404681199]
+	}, {
+		"countrie": "S. Sudan",
+		"coordinates": [7.30877944922, 30.2479000186]
+	}, {
+		"countrie": "Senegal",
+		"coordinates": [14.3662417313, -14.4734923973]
+	}, {
+		"countrie": "Singapore",
+		"coordinates": [1.35876087075, 103.81725592]
+	}, {
+		"countrie": "S. Geo. and S. Sandw. Is.",
+		"coordinates": [-54.4648824802, -36.4331838823]
+	}, {
+		"countrie": "Saint Helena",
+		"coordinates": [-12.4035595078, -9.5477941587]
+	}, {
+		"countrie": "Solomon Is.",
+		"coordinates": [-8.92178021692, 159.632876678]
+	}, {
+		"countrie": "Sierra Leone",
+		"coordinates": [8.56329593038, -11.7927124668]
+	}, {
+		"countrie": "El Salvador",
+		"coordinates": [13.7394374383, -88.8716446906]
+	}, {
+		"countrie": "San Marino",
+		"coordinates": [43.9418674677, 12.4592233358]
+	}, {
+		"countrie": "Somaliland",
+		"coordinates": [9.73345496311, 46.251983951]
+	}, {
+		"countrie": "Somalia",
+		"coordinates": [4.75062876055, 45.7071448699]
+	}, {
+		"countrie": "St. Pierre and Miquelon",
+		"coordinates": [46.9191878929, -56.3031977882]
+	}, {
+		"countrie": "Serbia",
+		"coordinates": [44.2215031993, 20.7895833363]
+	}, {
+		"countrie": "SÃ£o TomÃ© and Principe",
+		"coordinates": [0.443914449308, 6.72429657927]
+	}, {
+		"countrie": "Suriname",
+		"coordinates": [4.1305541299, -55.9123456951]
+	}, {
+		"countrie": "Slovakia",
+		"coordinates": [48.7054752813, 19.4790521811]
+	}, {
+		"countrie": "Slovenia",
+		"coordinates": [46.1155477207, 14.8044423776]
+	}, {
+		"countrie": "Sweden",
+		"coordinates": [62.7796651931, 16.7455804869]
+	}, {
+		"countrie": "Swaziland",
+		"coordinates": [-26.5584304502, 31.4819369011]
+	}, {
+		"countrie": "Sint Maarten",
+		"coordinates": [18.0508172793, -63.057133627]
+	}, {
+		"countrie": "Seychelles",
+		"coordinates": [-4.66099093522, 55.4760327912]
+	}, {
+		"countrie": "Syria",
+		"coordinates": [35.025473894, 38.5078820425]
+	}, {
+		"countrie": "Turks and Caicos Is.",
+		"coordinates": [21.8304757171, -71.9738788144]
+	}, {
+		"countrie": "Chad",
+		"coordinates": [15.333337585, 18.6449251291]
+	}, {
+		"countrie": "Togo",
+		"coordinates": [8.52531356141, 0.962328449769]
+	}, {
+		"countrie": "Thailand",
+		"coordinates": [15.1181579418, 101.002881304]
+	}, {
+		"countrie": "Tajikistan",
+		"coordinates": [38.5304538963, 71.0136263091]
+	}, {
+		"countrie": "Turkmenistan",
+		"coordinates": [39.1155413742, 59.3710002061]
+	}, {
+		"countrie": "Timor-Leste",
+		"coordinates": [-8.82889162047, 125.844389821]
+	}, {
+		"countrie": "Tonga",
+		"coordinates": [-20.4284317425, -174.80987341]
+	}, {
+		"countrie": "Trinidad and Tobago",
+		"coordinates": [10.457334081, -61.2656792335]
+	}, {
+		"countrie": "Tunisia",
+		"coordinates": [34.1195624649, 9.55288358933]
+	}, {
+		"countrie": "Turkey",
+		"coordinates": [39.0616029013, 35.1689534649]
+	}, {
+		"countrie": "Taiwan",
+		"coordinates": [23.753992795, 120.954272814]
+	}, {
+		"countrie": "Tanzania",
+		"coordinates": [-6.27565408332, 34.8130998093]
+	}, {
+		"countrie": "Uganda",
+		"coordinates": [1.27469298731, 32.3690797137]
+	}, {
+		"countrie": "Ukraine",
+		"coordinates": [48.9965667265, 31.3832646865]
+	}, {
+		"countrie": "Uruguay",
+		"coordinates": [-32.7995153444, -56.0180705315]
+	}, {
+		"countrie": "United States",
+		"coordinates": [45.6795472026, -112.4616737]
+	}, {
+		"countrie": "Uzbekistan",
+		"coordinates": [41.7555422527, 63.1400152805]
+	}, {
+		"countrie": "Vatican",
+		"coordinates": [41.9017498529, 12.4338717661]
+	}, {
+		"countrie": "St. Vin. and Gren.",
+		"coordinates": [13.22472269, -61.2012969497]
+	}, {
+		"countrie": "Venezuela",
+		"coordinates": [7.12422421273, -66.1818412311]
+	}, {
+		"countrie": "British Virgin Is.",
+		"coordinates": [18.5258575451, -64.471469922]
+	}, {
+		"countrie": "U.S. Virgin Is.",
+		"coordinates": [17.9550062394, -64.8030153752]
+	}, {
+		"countrie": "Vietnam",
+		"coordinates": [16.6460167019, 106.299146978]
+	}, {
+		"countrie": "Vanuatu",
+		"coordinates": [-16.2264090884, 167.686446357]
+	}, {
+		"countrie": "Wallis and Futuna Is.",
+		"coordinates": [-13.8873703903, -177.348348251]
+	}, {
+		"countrie": "Samoa",
+		"coordinates": [-13.7532434638, -172.16485064]
+	}, {
+		"countrie": "Yemen",
+		"coordinates": [15.9092800505, 47.5867618877]
+	}, {
+		"countrie": "South Africa",
+		"coordinates": [-29.0003409534, 25.0839009251]
+	}, {
+		"countrie": "Zambia",
+		"coordinates": [-13.4582415186, 27.7747594637]
+	}, {
+		"countrie": "Zimbabwe",
+		"coordinates": [-19.0042041882, 29.8514412019]
+	}]
+}

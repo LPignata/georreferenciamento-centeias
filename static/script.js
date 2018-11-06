@@ -1,5 +1,5 @@
 var map;
-var estate = new Array();
+var countries = new Array();
 
 /*function getColor(d) {
     return d == "Nordeste" ? '#800026' : 
@@ -15,32 +15,30 @@ var estate = new Array();
 function style(color) { 
     return { 
         fillColor: color, 
-        weight: 2, 
-        opacity: 1, 
-        color: 'white', 
-        dashArray: '3', 
-        fillOpacity: 0.7 
+        weight: 0, 
+        fillOpacity: .7
     }; 
 }
 
 function fill_estates_map(data) {
-    data.features.forEach(element => {
-        uf = element.properties.UF_05;
-        coordinates = element.geometry.coordinates;
-        estate[uf] = L.polygon(coordinates).setStyle(style("#000")).addTo(map);
+    console.log(data);
+    data.countries.forEach(element => {
+        countrie = element.countrie;
+        coordinates = element.coordinates;
+        countries[countrie] = L.circleMarker(coordinates)
+                                .setRadius(10)
+                                .setStyle(style("#000"))
+                                .bindPopup(countrie)
+                                .addTo(map);
     });
 }
 
 $(document).ready(function() {
-    // Cria o mapa
-    map = L.map('map').setView([ -15.7801, -47.9292], 4);
+    map = L.map('map').setView([0, 0], 2);
 
-    L.esri.basemapLayer('Topographic').addTo(map);
+    L.esri.basemapLayer('Gray').addTo(map);
 
-    //L.marker([-15.7801, -47.9292],{draggable: false}).addTo(map).bindPopup("Brasília");
-
-    // Pinta os estados no mapa
-    $.getJSON("/retrieve_estates").done(function(data) {
+    $.getJSON("static/countrie.json").done(function(data) {
         fill_estates_map(data);
     });
 });
