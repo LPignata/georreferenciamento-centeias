@@ -33,6 +33,12 @@ function fill_estates_map(data) {
     });
 }
 
+function show_search(id) {
+    id = "#".concat(id);
+    if ($(id).is(":visible")) { $(id).hide(); }
+    else { $(id).show(); }
+}
+
 $(document).ready(function() {
     map = L.map('map').setView([0, 0], 2);
 
