@@ -25,31 +25,38 @@
 <body>
 
   <div id="search">
-    <button id="search-title" class="link" onclick="show_search('list-nav')"><h6>Pesquisar</h6></button>
+    <div id="search-title">
+      <div class="linha"></div>
+      <div class="linha"></div>
+      <div class="linha"></div>
+    </div>
+    <button class="link" onclick="show_search('list-nav')"><h6>Pesquisar</h6></button>
     <ul id="list-nav" class="item-search">
       <li>
           <button class="link" onclick="show_search('item-diseases')"><h6>Doenças</h6></button>
-          <div class="item-search" id="item-diseases">
-            <!-- Preencher com o form -->
+          <div class="item-search form-search" id="item-diseases">
+            Selecionar doença: <select name="select-disease"><option value="select-none">-- Selecione um item --</option></select>
           </div>
       </li>
       <li>
           <button class="link" onclick="show_search('item-location')"><h6>Localização</h6></button>
-          <div class="item-search" id="item-location">
-            <!-- Preencher com o form -->
+          <div class="item-search form-search" id="item-location">
+            <input type="radio" name="select-location" value="select-brazil" checked> Apenas o Brasil<br>
+            <input type="radio" name="select-location" value="select-countries"> Todos os países<br>
           </div>
       </li>
       <li>
           <button class="link" onclick="show_search('item-date')"><h6>Data</h6></button>
-          <div class="item-search" id="item-date">
-            <!-- Preencher com o form -->
+          <div class="item-search form-search" id="item-date">
+            De: <input type="date" name="date-begin"> Até: <input type="date" name="date-end" value="2018-05-05">
           </div>
+      </li>
+      <li>
+        <button class="button-search" id="buttom-search">Realizar pesquisa</button>
       </li>
     </ul>
   </div>
 
   <div id="map"></div>
-  
-
 </body>
 </html>
