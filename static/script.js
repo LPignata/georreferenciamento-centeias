@@ -47,6 +47,11 @@ $(document).ready(function() {
         fill_estates_map(data);
     });
 
+    var date = new Date();
+    var date_now = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    $("#date-begin").val(date_now);
+    $("#date-end").val(date_now);
+
     // Make the DIV element draggable:
     dragElement(document.getElementById("search"));
 
