@@ -1,34 +1,57 @@
 var map;
 var countries = new Array();
+var estates = new Array();
 
-/*function getColor(d) {
-    return d == "Nordeste" ? '#800026' : 
-        d == "Sudeste" ? '#BD0026' : 
-        d == "Norte" ? '#E31A1C' : 
-        d == "Sul" ? '#FC4E2A' : 
-        d > 10 ? '#FD8D3C' : 
-        d > 05 ? '#FEB24C' : 
-        d > 0 ? '#FED976' : 
-        '#FFEDA0'; 
-}*/
+function getColor(d) {
+    return d > 30 ? '#f1433a' : 
+        d > 25 ? '#fb7f1f' : 
+        d > 20 ? '#e6de31' : 
+        d > 15 ? '#9ceb38' : 
+        d > 10 ? '#00d58e' : 
+        d > 5 ? '#03a2fa' : 
+        '#2837ff'; 
+}
 
-function style(color) { 
+function getRadius(d) {
+    return d > 30 ? 9 : 
+        d > 25 ? 8 : 
+        d > 20 ? 7.5 : 
+        d > 15 ? 7 : 
+        d > 10 ? 6.5 : 
+        d > 5 ? 6 : 
+        5; 
+}
+
+function clearAllCircleMarker() {
+    countries.forEach(element => {
+        element.removeFrom(map);
+    })
+    estates.forEach(element => {
+        element.removeFrom(map);
+    })
+}
+
+function style(d) { 
     return { 
-        fillColor: color, 
+        fillColor: getColor(d), 
         weight: 0, 
         fillOpacity: .7
     }; 
 }
 
-function fill_estates_map(data) {
+function fill_countries_map(data) {
     data.countries.forEach(element => {
         countrie = element.countrie;
         coordinates = element.coordinates;
-        countries[countrie] = L.circleMarker(coordinates)
-                                .setRadius(10)
-                                .setStyle(style("#000"))
-                                .bindPopup(countrie)
-                                .addTo(map);
+        countries[countrie] = L.circleMarker(coordinates);
+    });
+}
+
+function fill_estates_map(data) {
+    data.estates.forEach(element => {
+        estate = element.estate;
+        coordinates = element.coordinates;
+        estates[estate] = L.circleMarker(coordinates);
     });
 }
 
@@ -38,12 +61,32 @@ function show_search(id) {
     else { $(id).show(); }
 }
 
+function response_api(data) {
+    console.log(data);
+    console.log('a');
+}
+
+function request_api() {
+    let disease = $("#select-disease option").filter(":selected").val();
+    let location = $("#item-location input[type='radio']:checked").val();
+    let date_begin = $("#date-begin").val();
+    let date_end = $("#date-end").val();
+    
+    let url = 'api?disease=' + disease + '&location=' + location + '&date_begin=' + date_begin + '&date_end=' + date_end;
+    console.log(url);
+    $.getJSON('url').done(response_api);
+}
+
 $(document).ready(function() {
     map = L.map('map').setView([0, 0], 2);
 
     L.esri.basemapLayer('Gray').addTo(map);
 
     $.getJSON("static/countrie.json").done(function(data) {
+        fill_countries_map(data);
+    });
+
+    $.getJSON("static/estates.json").done(function(data) {
         fill_estates_map(data);
     });
 
@@ -117,3 +160,15 @@ $(document).ready(function() {
         }
     }
 });
+
+// function fill_countries_map(data) {
+//     data.countries.forEach(element => {
+//         countrie = element.countrie;
+//         coordinates = element.coordinates;
+//         countries[countrie] = L.circleMarker(coordinates)
+//                                 .setRadius(getRadius(34))
+//                                 .setStyle(style(35))
+//                                 .bindPopup(countrie)
+//                                 .addTo(map);
+//     });
+// }

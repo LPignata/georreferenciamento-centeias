@@ -35,7 +35,7 @@
       <li>
           <button class="link" onclick="show_search('item-diseases')"><h6>Doenças</h6></button>
           <div class="item-search form-search" id="item-diseases">
-            Selecionar doença: <select name="select-disease"><option value="select-none">-- Selecione um item --</option></select>
+            Selecionar doença: <select name="select-disease" id="select-disease"><option value="select-none">-- Selecione um item --</option></select>
           </div>
       </li>
       <li>
@@ -52,7 +52,7 @@
           </div>
       </li>
       <li>
-        <button class="button-search" id="buttom-search">Realizar pesquisa</button>
+        <button class="button-search" id="buttom-search" onclick="request_api()">Realizar pesquisa</button>
       </li>
     </ul>
   </div>

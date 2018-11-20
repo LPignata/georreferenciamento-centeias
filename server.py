@@ -65,7 +65,7 @@ def api():
     data_begin = request.args.get('data_begin','')
     data_end = request.args.get('data_end','')
     print(disease)
-    return ''
+    return disease
 
 @app.route('/')
 def hello(name=None):    
