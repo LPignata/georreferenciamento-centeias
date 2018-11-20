@@ -4,10 +4,16 @@ import json
 import datetime
 import logging
 import os
+from db_request import retrieve_json, process_json, available_diseases
     
-logging.basicConfig(filename='static/error.log', level=logging.ERROR)
+logging.basicConfig(filename='static/entries.log', level=logging.ERROR)
 
 app = Flask(__name__, static_url_path='/static')
+
+database_url = 'https://sala-de-situacao-bd.herokuapp.com/retrieve?'
+
+# parametros de filtragem
+params_dict = {'disease': '', 'globe': '', 'data_begin': '', 'data_end': ''}
 
 @app.route("/access/dates")
 # Retorna quantos acessos cada data teve
@@ -51,32 +57,49 @@ def retrieve_estates():
         data = json.load(f)
     return(jsonify(data))
 
-@app.route('/retrieve_news')
-def retrieve_news():
-    url = 'https://sala-de-situacao-bd.herokuapp.com/retrieve'
-    r = requests.get(url)
-    j = r.json()    
-    return (jsonify(j))
 
-@app.route('/api')
-def api():
-    disease = request.args.get('disease','')
-    globe = request.args.get('globe','')
-    data_begin = request.args.get('data_begin','')
-    data_end = request.args.get('data_end','')
-    print(disease)
-    return disease
+@app.route('/get_database_diseases')
+def get_database_diseases():
+    return jsonify(available_diseases(database_url))
+
+@app.route('/get_database_search')
+def get_database_search():
+    # Prepara a query a ser enviada para o banco de dados
+    search_query = ''
+    global params_dict
+    for parameter in params_dict:        
+        if(params_dict[parameter] != ''):
+            if('data' in parameter):
+                print(parameter)
+                date = params_dict[parameter]
+                date = date.split('-')
+                search_query += 'year=' + date[0] + '&'
+                search_query += 'month=' + date[1] + '&'
+                search_query += 'day=' + date[2] + '&'            
+            else:
+                search_query += parameter + '=' + params_dict[parameter] + '&'
+    search_query = search_query[:-1]
+    
+    data = retrieve_json(database_url + search_query)
+    return jsonify(process_json(data, True))
+    
 
 @app.route('/')
 def hello(name=None):    
+    global params_dict
     logger = logging.getLogger()
     date = datetime.date.today()
     ip   = request.environ['REMOTE_ADDR']
 
     logger.error(str(ip) + ' ' + str(date))
+    
+    params_dict['disease'] = request.args.get('disease','')
+    params_dict['globe'] = request.args.get('globe','')
+    params_dict['data_begin'] = request.args.get('data_begin','')    
+    params_dict['data_end'] = request.args.get('data_end','')    
 
     return render_template('index.html')
 
 if __name__ == '__main__':    
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0',port=port)
+    app.run(host='0.0.0.0',port=port, debug=True)
