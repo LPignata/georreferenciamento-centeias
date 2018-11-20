@@ -58,6 +58,15 @@ def retrieve_news():
     j = r.json()    
     return (jsonify(j))
 
+@app.route('/api')
+def api():
+    disease = request.args.get('disease','')
+    globe = request.args.get('globe','')
+    data_begin = request.args.get('data_begin','')
+    data_end = request.args.get('data_end','')
+    print(disease)
+    return ''
+
 @app.route('/')
 def hello(name=None):    
     logger = logging.getLogger()
