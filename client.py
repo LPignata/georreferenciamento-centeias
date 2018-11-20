@@ -1,4 +1,7 @@
-import requests
+import urllib.request, json 
+from pprint import pprint
 
-r = requests.get('http://127.0.0.1:8080/log')
-print(r.content.decode('utf-8'))
+return_data = []
+with urllib.request.urlopen('http://192.168.5.107:5000/access/ips') as url:
+    data = json.loads(url.read().decode())
+    pprint(data)

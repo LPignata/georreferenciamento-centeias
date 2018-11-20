@@ -3,12 +3,14 @@ import requests
 import json
 import datetime
 import logging
+import os
     
 logging.basicConfig(filename='static/error.log', level=logging.ERROR)
 
 app = Flask(__name__, static_url_path='/static')
 
-@app.route("/dates")
+@app.route("/access/dates")
+# Retorna quantos acessos cada data teve
 def get_dates():
     with open('static/error.log') as my_file:
         lines = my_file.readlines()
@@ -18,13 +20,15 @@ def get_dates():
         line = line.replace('ERROR:root:','')
         arr  = line.split(' ')        
         date = arr[1]
+        date = date.rstrip()
         if date not in dic:
             dic[date] = 0            
         dic[date] += 1
 
-    return jsonify(dic)
+    return jsonify(dic), 200
 
-@app.route("/ips")
+@app.route("/access/ips")
+# Retorna quantas vezes cada ip acessou
 def get_ips():
     with open('static/error.log') as my_file:
         lines = my_file.readlines()
@@ -38,9 +42,10 @@ def get_ips():
             dic[ip] = 0            
         dic[ip] += 1
 
-    return jsonify(dic)    
+    return jsonify(dic), 200
 
 @app.route('/retrieve_estates')
+# Usada internamente
 def retrieve_estates():
     with open('static/estates.json') as f:
         data = json.load(f)
@@ -64,5 +69,5 @@ def hello(name=None):
     return render_template('index.html')
 
 if __name__ == '__main__':    
-
-    app.run(host='0.0.0.0', debug = True, port = 8080)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0',port=port)
