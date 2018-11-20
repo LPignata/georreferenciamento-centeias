@@ -62,8 +62,8 @@ function show_search(id) {
 }
 
 function response_api(data) {
-    console.log(data);
-    console.log('a');
+    clearAllCircleMarker();
+    // TODO fazer o resto
 }
 
 function request_api() {
@@ -73,8 +73,7 @@ function request_api() {
     let date_end = $("#date-end").val();
     
     let url = 'api?disease=' + disease + '&location=' + location + '&date_begin=' + date_begin + '&date_end=' + date_end;
-    console.log(url);
-    $.getJSON('url').done(response_api);
+    $.get(url).done(response_api);
 }
 
 $(document).ready(function() {
@@ -93,6 +92,15 @@ $(document).ready(function() {
     var date = new Date();
     var date_now = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     $("#date-begin").val(date_now);
+
+    if (date.getMonth() == 0) {
+        date.setMonth(11);
+        date.setFullYear(date.getFullYear() - 1);
+    }
+    else {
+        date.setMonth(date.getMonth() - 1);
+    }
+    var date_now = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     $("#date-end").val(date_now);
 
     // Make the DIV element draggable:
