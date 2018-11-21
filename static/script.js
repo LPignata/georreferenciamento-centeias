@@ -44,7 +44,6 @@ function style(d) {
 }
 
 function fill_countries_map(data) {
-    console.log(data);
     data.countries.forEach(element => {
         countrie = element.sigla;
         coordinates = element.coordinates;
@@ -68,6 +67,8 @@ function fill_select_diseases(data) {
             text: disease
         }));
     });
+    $("#select-disease").val(data.diseases[0]).change();
+    request_api();
 }
 
 function show_search(id) {
@@ -78,7 +79,6 @@ function show_search(id) {
 
 function response_api(data) {
     var message = "";
-    console.log(data);
 
     clearAllCircleMarker();
     if (data.data == null) return;
@@ -90,10 +90,10 @@ function response_api(data) {
 
             if (countries[local] != null) {
                 if (count == 1) {
-                    message = "1 caso de " + jsUcfirst(data.disease) + " em " + countries[local].name + ".";
+                    message = "1 notícia de " + jsUcfirst(data.disease) + " em " + countries[local].name + ".";
                 }
                 else {
-                    message = count + " casos de " + jsUcfirst(data.disease) + " em " + countries[local].name + ".";
+                    message = count + " notícias de " + jsUcfirst(data.disease) + " em " + countries[local].name + ".";
                 }
 
                 countries[local].marker.setRadius(getRadius(count))
@@ -101,7 +101,8 @@ function response_api(data) {
                     .bindPopup(message)
                     .addTo(map);
             }
-        })
+        });
+        map.setView([0, 0], 2);
     }
     else {
         data.data.forEach(element => {
@@ -110,10 +111,10 @@ function response_api(data) {
 
             if (estates[local] != null) {
                 if (count == 1) {
-                    message = "1 caso de " + jsUcfirst(data.disease) + " em " + estates[local].name + ".";
+                    message = "1 notícia de " + jsUcfirst(data.disease) + " em " + estates[local].name + ".";
                 }
                 else {
-                    message = count + " casos de " + jsUcfirst(data.disease) + " em " + estates[local].name + ".";
+                    message = count + " notícias de " + jsUcfirst(data.disease) + " em " + estates[local].name + ".";
                 }
 
                 estates[local].marker.setRadius(getRadius(count))
@@ -121,7 +122,8 @@ function response_api(data) {
                     .bindPopup(message)
                     .addTo(map);
             }
-        })
+        });
+        map.setView([-15.755340, -47.756096], 4);
     }
 }
 
@@ -130,9 +132,10 @@ function request_api() {
     let location = $("#item-location input[type='radio']:checked").val();
     let date_begin = $("#date-begin").val();
     let date_end = $("#date-end").val();
+
+    if (date_begin > date_end) alert("Por favor, insira uma data final maior que a data inicial!");
     
     let url = 'get_database_search?disease=' + disease + '&globe=' + location + '&data_begin=' + date_begin + '&data_end=' + date_end;
-    console.log(url);
     $.get(url).done(response_api);
 }
 
@@ -226,15 +229,3 @@ $(document).ready(function() {
         }
     }
 });
-
-// function fill_countries_map(data) {
-//     data.countries.forEach(element => {
-//         countrie = element.countrie;
-//         coordinates = element.coordinates;
-//         countries[countrie] = L.circleMarker(coordinates)
-//                                 .setRadius(getRadius(34))
-//                                 .setStyle(style(35))
-//                                 .bindPopup(countrie)
-//                                 .addTo(map);
-//     });
-// }
