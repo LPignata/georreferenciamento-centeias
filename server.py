@@ -5,6 +5,7 @@ import datetime
 import logging
 import os
 from db_request import retrieve_json, process_json, available_diseases
+from waitress import serve
     
 logging.basicConfig(filename='static/entries.log', level=logging.ERROR)
 
@@ -18,7 +19,7 @@ params_dict = {'disease': '', 'globe': '', 'data_begin': '', 'data_end': ''}
 @app.route("/access/dates")
 # Retorna quantos acessos cada data teve
 def get_dates():
-    with open('static/error.log') as my_file:
+    with open('static/entries.log') as my_file:
         lines = my_file.readlines()
 
     dic = {}
@@ -36,7 +37,7 @@ def get_dates():
 @app.route("/access/ips")
 # Retorna quantas vezes cada ip acessou
 def get_ips():
-    with open('static/error.log') as my_file:
+    with open('static/entries.log') as my_file:
         lines = my_file.readlines()
 
     dic = {}
@@ -103,6 +104,7 @@ def hello(name=None):
 
     return render_template('index.html')
 
-if __name__ == '__main__':    
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0',port=port, debug=True)
+# if __name__ == '__main__':    
+#     port = int(os.environ.get("PORT", 80))
+#     app.run(host='0.0.0.0',port=port)
+serve(app, port=5000)

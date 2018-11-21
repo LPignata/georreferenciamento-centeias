@@ -10,7 +10,7 @@ def retrieve_json(this_url):
         else:    
             return data
 
-# Retorna as doenças disponiveis no banco
+# Retorna as doencas disponiveis no banco
 def available_diseases(url):
     data = retrieve_json(url)
     array = []
