@@ -65,12 +65,15 @@ def get_database_diseases():
 @app.route('/get_database_search')
 def get_database_search():
     # Prepara a query a ser enviada para o banco de dados
-    search_query = ''
     global params_dict
+    search_query = ''
+    params_dict['disease'] = request.args.get('disease','')
+    params_dict['globe'] = request.args.get('globe','')
+    params_dict['data_begin'] = request.args.get('data_begin','')    
+    params_dict['data_end'] = request.args.get('data_end','')    
     for parameter in params_dict:        
         if(params_dict[parameter] != ''):
             if('data' in parameter):
-                print(parameter)
                 date = params_dict[parameter]
                 date = date.split('-')
                 search_query += 'year=' + date[0] + '&'
@@ -79,9 +82,9 @@ def get_database_search():
             else:
                 search_query += parameter + '=' + params_dict[parameter] + '&'
     search_query = search_query[:-1]
-    
     data = retrieve_json(database_url + search_query)
-    return jsonify(process_json(data, True))
+    # return jsonify(data)
+    return jsonify(process_json(data, params_dict['globe'] == "countries", date))
     
 
 @app.route('/')

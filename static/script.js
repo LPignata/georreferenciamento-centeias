@@ -23,12 +23,16 @@ function getRadius(d) {
 }
 
 function clearAllCircleMarker() {
-    countries.forEach(element => {
-        element.removeFrom(map);
-    })
-    estates.forEach(element => {
-        element.removeFrom(map);
-    })
+    for (var i in estates) {
+        estates[i].marker.removeFrom(map);
+    }
+    for (var i in countries) {
+        countries[i].marker.removeFrom(map);
+    }
+}
+
+function jsUcfirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function style(d) { 
@@ -40,18 +44,29 @@ function style(d) {
 }
 
 function fill_countries_map(data) {
+    console.log(data);
     data.countries.forEach(element => {
-        countrie = element.countrie;
+        countrie = element.sigla;
         coordinates = element.coordinates;
-        countries[countrie] = L.circleMarker(coordinates);
+        countries[countrie] = {"marker": L.circleMarker(coordinates), "name": element.countrie};
     });
 }
 
 function fill_estates_map(data) {
     data.estates.forEach(element => {
-        estate = element.estate;
+        estate = element.sigla;
         coordinates = element.coordinates;
-        estates[estate] = L.circleMarker(coordinates);
+        estates[estate] = {"marker": L.circleMarker(coordinates), "name": element.estate};
+    });
+}
+
+function fill_select_diseases(data) {
+    data.diseases.forEach(element => {
+        var disease = jsUcfirst(element);
+        $('#select-disease').append($('<option>', {
+            value: element,
+            text: disease
+        }));
     });
 }
 
@@ -62,8 +77,52 @@ function show_search(id) {
 }
 
 function response_api(data) {
+    var message = "";
+    console.log(data);
+
     clearAllCircleMarker();
-    // TODO fazer o resto
+    if (data.data == null) return;
+
+    if (data.globe) {
+        data.data.forEach(element => {
+            local = element.local;
+            count = element.count;
+
+            if (countries[local] != null) {
+                if (count == 1) {
+                    message = "1 caso de " + jsUcfirst(data.disease) + " em " + countries[local].name + ".";
+                }
+                else {
+                    message = count + " casos de " + jsUcfirst(data.disease) + " em " + countries[local].name + ".";
+                }
+
+                countries[local].marker.setRadius(getRadius(count))
+                    .setStyle(style(count))
+                    .bindPopup(message)
+                    .addTo(map);
+            }
+        })
+    }
+    else {
+        data.data.forEach(element => {
+            local = element.local;
+            count = element.count;
+
+            if (estates[local] != null) {
+                if (count == 1) {
+                    message = "1 caso de " + jsUcfirst(data.disease) + " em " + estates[local].name + ".";
+                }
+                else {
+                    message = count + " casos de " + jsUcfirst(data.disease) + " em " + estates[local].name + ".";
+                }
+
+                estates[local].marker.setRadius(getRadius(count))
+                    .setStyle(style(count))
+                    .bindPopup(message)
+                    .addTo(map);
+            }
+        })
+    }
 }
 
 function request_api() {
@@ -72,7 +131,8 @@ function request_api() {
     let date_begin = $("#date-begin").val();
     let date_end = $("#date-end").val();
     
-    let url = 'api?disease=' + disease + '&location=' + location + '&date_begin=' + date_begin + '&date_end=' + date_end;
+    let url = 'get_database_search?disease=' + disease + '&globe=' + location + '&data_begin=' + date_begin + '&data_end=' + date_end;
+    console.log(url);
     $.get(url).done(response_api);
 }
 
@@ -81,17 +141,15 @@ $(document).ready(function() {
 
     L.esri.basemapLayer('Gray').addTo(map);
 
-    $.getJSON("static/countrie.json").done(function(data) {
-        fill_countries_map(data);
-    });
+    $.getJSON("static/countrie.json").done(fill_countries_map);
 
-    $.getJSON("static/estates.json").done(function(data) {
-        fill_estates_map(data);
-    });
+    $.getJSON("static/estates.json").done(fill_estates_map);
+
+    $.getJSON("get_database_diseases").done(fill_select_diseases);
 
     var date = new Date();
     var date_now = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-    $("#date-begin").val(date_now);
+    $("#date-end").val(date_now);
 
     if (date.getMonth() == 0) {
         date.setMonth(11);
@@ -101,7 +159,7 @@ $(document).ready(function() {
         date.setMonth(date.getMonth() - 1);
     }
     var date_now = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-    $("#date-end").val(date_now);
+    $("#date-begin").val(date_now);
 
     // Make the DIV element draggable:
     dragElement(document.getElementById("search"));

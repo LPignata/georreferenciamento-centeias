@@ -18,13 +18,13 @@ def available_diseases(url):
     for result in data:
         disease = result['disease']
         if disease:
-            array.append(disease.lower())
+            array.append(disease)
 
     array = (list(set(array)))
     dic['diseases'] = array
     return dic
 
-def process_json(data, seach_globe):
+def process_json(data, seach_globe, date):
     dic = {}    
 
     for result in data:
@@ -34,6 +34,16 @@ def process_json(data, seach_globe):
         else:
             # se n, pesquise estados
             local = result['region']    
+
+        date_result = result['date'].split('T')[0].split('-')
+        if date_result[0] > date[0]:
+            continue
+        elif date_result[0] == date[0]:
+            if date_result[1] > date[1]:
+                continue
+            elif date_result[1] == date[1]:
+                if date_result[2] > date[2]:
+                    continue
 
         if local == '':
             continue
@@ -45,6 +55,7 @@ def process_json(data, seach_globe):
     result_dictionary = {}
 
     result_dictionary['globe'] = seach_globe
+    result_dictionary['disease'] = result['disease']
     result_dictionary['data'] = []    
     for d in dic:        
         result_dictionary['data'].append({'local': d, 'count': dic[d]})
