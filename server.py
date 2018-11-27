@@ -84,7 +84,7 @@ def get_database_search():
                 search_query += parameter + '=' + params_dict[parameter] + '&'
     search_query = search_query[:-1]
     data = retrieve_json(database_url + search_query)
-    # return jsonify(data)
+
     return jsonify(process_json(data, params_dict['globe'] == "countries", date))
     
 
@@ -104,7 +104,4 @@ def hello(name=None):
 
     return render_template('index.html')
 
-# if __name__ == '__main__':    
-#     port = int(os.environ.get("PORT", 80))
-#     app.run(host='0.0.0.0',port=port)
 serve(app, port=80)

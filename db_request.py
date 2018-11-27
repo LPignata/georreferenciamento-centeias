@@ -2,6 +2,7 @@ import urllib.request, json
 from pprint import pprint
 
 def retrieve_json(this_url):
+    # Pega um Json do banco de dados
     with urllib.request.urlopen(this_url) as url:
         data = json.loads(url.read().decode())
         # Query vazia
@@ -24,11 +25,16 @@ def available_diseases(url):
     dic['diseases'] = array
     return dic
 
-def process_json(data, seach_globe, date):
-    dic = {}    
+# Processa um Json para o front receber o dado
+# search_globe define se deve-se buscar no brasil ou no mundo inteiro
+def process_json(data, search_globe, date):
+    # count_dic contém quantas noticias tem em cada localização
+    count_dic = {}
+    # url_dic contém as url's de cada localização
+    url_dic = {}
 
     for result in data:
-        if seach_globe:
+        if search_globe:
             # Se o resultado for global pesquise paises
             local = result['country']
         else:
@@ -45,19 +51,42 @@ def process_json(data, seach_globe, date):
                 if date_result[2] > date[2]:
                     continue
 
-        if local == '':
+        if local == '':            
             continue
-        if (local not in dic):
-            dic[local] = 1
-        else:
-            dic[local] += 1    
 
+        # Inserção dos counts
+        if (local not in count_dic):
+            count_dic[local] = 1                        
+        else:
+            count_dic[local] += 1
+
+        # Inserção das urls
+        if(local not in url_dic):
+            url_dic[local] = [
+                {'link': result['url'],
+                'title': result['title'],
+                'description':result['description']
+                }]
+        else:
+            url_dic[local].append(
+                {'link': result['url'],
+                'title': result['title'],
+                'description':result['description']
+                })
+                
     result_dictionary = {}
 
-    result_dictionary['globe'] = seach_globe
+    result_dictionary['globe'] = search_globe
     result_dictionary['disease'] = result['disease']
     result_dictionary['data'] = []    
-    for d in dic:        
-        result_dictionary['data'].append({'local': d, 'count': dic[d]})
+    
+    for d in count_dic:
+        result_dictionary['data'].append(
+            {
+            'local': d,
+            'count': count_dic[d],
+            'url': url_dic[d]
+            })
         
+    pprint((result_dictionary))
     return result_dictionary
