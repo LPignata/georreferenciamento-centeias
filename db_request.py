@@ -6,7 +6,8 @@ def retrieve_json(this_url):
     with urllib.request.urlopen(this_url) as url:
         data = json.loads(url.read().decode())
         # Query vazia
-        if(data == []):            
+        if(data == []):
+            pprint(data)            
             return None      
         else:    
             return data
@@ -87,6 +88,5 @@ def process_json(data, search_globe, date):
             'count': count_dic[d],
             'url': url_dic[d]
             })
-        
-    pprint((result_dictionary))
+                
     return result_dictionary

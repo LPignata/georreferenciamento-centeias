@@ -86,10 +86,18 @@ def get_database_search():
     data = retrieve_json(database_url + search_query)
 
     return jsonify(process_json(data, params_dict['globe'] == "countries", date))
-    
+
+# Testa se o banco está disponível
+def database_availability():
+    request = requests.get(database_url)    
+    return request.status_code == 200
 
 @app.route('/')
-def hello(name=None):    
+def main_page(name=None):
+    # Caso o banco não esteja disponível alerte o usuário
+    if(database_availability() == False):
+        return render_template('db_error.html')
+
     global params_dict
     logger = logging.getLogger()
     date = datetime.date.today()
@@ -104,4 +112,6 @@ def hello(name=None):
 
     return render_template('index.html')
 
-serve(app, port=80)
+if __name__ == "__main__":    
+    # app.run(port=80, debug=True)
+    serve(app, port=80)
