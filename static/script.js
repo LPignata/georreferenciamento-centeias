@@ -22,6 +22,18 @@ function getRadius(d) {
         5; 
 }
 
+function open_share() {
+    $('#link-text-share').show();
+    $('#copy-share').show();
+    $('#close-share').show();
+}
+
+function close_share() {
+    $('#link-text-share').hide();
+    $('#copy-share').hide();
+    $('#close-share').hide();
+}
+
 function clearAllCircleMarker() {
     for (var i in estates) {
         estates[i].marker.removeFrom(map);
@@ -67,7 +79,6 @@ function fill_select_diseases(data) {
             text: disease
         }));
     });
-    $("#select-disease").val(data.diseases[0]).change();
     request_api();
 }
 
@@ -75,6 +86,12 @@ function show_search(id) {
     id = "#".concat(id);
     if ($(id).is(":visible")) { $(id).hide(); }
     else { $(id).show(); }
+
+    if (id == '#list-nav') {
+        $('#item-diseases').hide();
+        $('#item-location').hide();
+        $('#item-date').hide();
+    }
 }
 
 function response_api(data) {
@@ -125,6 +142,37 @@ function response_api(data) {
         });
         map.setView([-15.755340, -47.756096], 4);
     }
+
+    // Atualizando os dados dos detalhes
+    let text_disease = $("#select-disease option").filter(":selected").html();
+    let text_location = (location == 'countries'? 'Todos os países':'Apenas o Brasil');
+
+    $('#detail-disease').html(text_disease);
+    $('#detail-location').html(text_location);
+
+    var split_date = $("#date-begin").val().split('-');
+    let text_date_begin = split_date[2] + '/' + split_date[1] + '/' + split_date[0];
+    $('#detail-date-begin').html(text_date_begin);
+
+    split_date = $("#date-end").val().split('-');
+    let text_date_end = split_date[2] + '/' + split_date[1] + '/' + split_date[0];
+    $('#detail-date-end').html(text_date_end);
+
+    // Atualiza link de compartilhamento
+    let disease = $("#select-disease option").filter(":selected").val();
+    let localization = $("#item-location input[type='radio']:checked").val();
+    let date_begin = $("#date-begin").val();
+    let date_end = $("#date-end").val();
+    var link = $(location).attr('href')
+        + '?disease='
+        + disease
+        + '&globe='
+        + localization
+        + '&data_begin='
+        + date_begin
+        + '&data_end='
+        + date_end;
+    $('#link-text-share').val(link);
 }
 
 function request_api() {
