@@ -4,6 +4,7 @@ import json
 import datetime
 import logging
 import os
+from pprint import pprint
 from db_request import retrieve_json, process_json, available_diseases
 from waitress import serve
     
@@ -68,11 +69,17 @@ def get_database_search():
     # Prepara a query a ser enviada para o banco de dados
     global params_dict
     search_query = ''
+    date = []
+        
     params_dict['disease'] = request.args.get('disease','')
+    if(params_dict['disease'] == 'all-diseases'):        
+        params_dict['disease'] = ''
+    
     params_dict['globe'] = request.args.get('globe','')
     params_dict['data_begin'] = request.args.get('data_begin','')    
-    params_dict['data_end'] = request.args.get('data_end','')    
-    for parameter in params_dict:        
+    params_dict['data_end'] = request.args.get('data_end','')        
+
+    for parameter in params_dict:
         if(params_dict[parameter] != ''):
             if('data' in parameter):
                 date = params_dict[parameter]
@@ -82,10 +89,14 @@ def get_database_search():
                 search_query += 'day=' + date[2] + '&'            
             else:
                 search_query += parameter + '=' + params_dict[parameter] + '&'
-    search_query = search_query[:-1]
+    search_query = search_query[:-1]    
+
     data = retrieve_json(database_url + search_query)
 
-    return jsonify(process_json(data, params_dict['globe'] == "countries", date))
+    if(params_dict['disease'] == ''):
+        params_dict['disease'] == 'Todas doenças'
+
+    return jsonify(process_json(data, params_dict['globe'] == "countries", date, params_dict['disease']))
 
 # Testa se o banco está disponível
 def database_availability():
@@ -113,5 +124,5 @@ def main_page(name=None):
     return render_template('index.html')
 
 if __name__ == "__main__":    
-    # app.run(port=80, debug=True)
+    # app.run(port=3000, debug=True)    
     serve(app, port=80)

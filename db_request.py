@@ -28,7 +28,7 @@ def available_diseases(url):
 
 # Processa um Json para o front receber o dado
 # search_globe define se deve-se buscar no brasil ou no mundo inteiro
-def process_json(data, search_globe, date):
+def process_json(data, search_globe, date, disease):
     # count_dic contém quantas noticias tem em cada localização
     count_dic = {}
     # url_dic contém as url's de cada localização
@@ -42,15 +42,17 @@ def process_json(data, search_globe, date):
             # se n, pesquise estados
             local = result['region']    
 
-        date_result = result['date'].split('T')[0].split('-')
-        if date_result[0] > date[0]:
-            continue
-        elif date_result[0] == date[0]:
-            if date_result[1] > date[1]:
+
+        if date != []:
+            date_result = result['date'].split('T')[0].split('-')
+            if date_result[0] > date[0]:
                 continue
-            elif date_result[1] == date[1]:
-                if date_result[2] > date[2]:
+            elif date_result[0] == date[0]:
+                if date_result[1] > date[1]:
                     continue
+                elif date_result[1] == date[1]:
+                    if date_result[2] > date[2]:
+                        continue
 
         if local == '':            
             continue
@@ -78,7 +80,7 @@ def process_json(data, search_globe, date):
     result_dictionary = {}
 
     result_dictionary['globe'] = search_globe
-    result_dictionary['disease'] = result['disease']
+    result_dictionary['disease'] = disease
     result_dictionary['data'] = []    
     
     for d in count_dic:
