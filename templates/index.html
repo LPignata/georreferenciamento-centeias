@@ -29,7 +29,7 @@
     <button class="button-share" onclick="open_share()"><i class='fas fa-share-alt'></i></button>
     <input type="text" class="text-share" id="link-text-share">
     <button class="button-click" id="copy-share" onclick="return fieldtoclipboard.copyfield(null, document.getElementById('link-text-share'))">Copiar link</button>
-    </i><button class="button-share" id="close-share" onclick="close_share()"><i class='fas fa-angle-left'></i></button>
+    <button class="button-share" id="close-share" onclick="close_share()"><i class='fas fa-angle-left'></i></button>
   </div>
   
   <div id="search">
@@ -49,8 +49,8 @@
       <li>
           <button class="link" onclick="show_search('item-location')"><h6>Localização</h6></button>
           <div class="item-search form-search" id="item-location">
-            <input type="radio" name="select-location" value="countries" checked="checked"> Todos os países<br>
-            <input type="radio" name="select-location" value="brazil"> Apenas o Brasil<br>
+            <input type="radio" name="select-location" value="countries" id="countries"> Todos os países<br>
+            <input type="radio" name="select-location" value="brazil" id="brazil" checked> Apenas o Brasil<br>
           </div>
       </li>
       <li>
@@ -63,6 +63,13 @@
         <button class="button-search" id="buttom-search" onclick="request_api()">Realizar pesquisa</button>
       </li>
     </ul>
+  </div>
+
+  <div id="links">
+    <button class="link" id="close-links" onclick="$('#links').hide()">F E C H A R</button>
+    <div class="list-links">
+      <ul id="list-items"></ul>
+      </div>
   </div>
 
   <div class="details">

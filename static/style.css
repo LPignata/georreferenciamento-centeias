@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+	font-family: Helvetica;
+}
+
 body { margin:0; padding:0; }
 
 #map {
@@ -116,7 +121,7 @@ span {
     padding: 0px;
     z-index: 200;
     left: 10px;
-    top: 72px;
+    top: 100px;
     border-radius: 4px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.65);
 }
@@ -144,4 +149,55 @@ span {
 #link-text-share, #copy-share, #close-share {
     display: none;
     animation: opac 0.8s;
+}
+
+#links {
+    background: white;
+    position: absolute;
+    width: 25%;
+    color: white;
+    z-index: 200;
+    right: 20px;
+    top: 20px;
+    bottom: 70px;
+    padding: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+    display: none;
+    animation: opac 0.8s;
+}
+
+.list-links {
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+#close-links {
+    color: black;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#list-items {
+    background: none;
+    margin-right: 8px;
+    color: black;
+}
+
+#list-items li {
+    padding: 8px;
+    background: none;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid #ccc;
+    animation: opac 0.8s;
+}
+
+.link_url { 
+    text-decoration: none;
+}
+
+.link_url:hover { 
+    text-decoration: underline;
 }
