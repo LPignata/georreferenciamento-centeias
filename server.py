@@ -92,6 +92,9 @@ def get_database_search():
     search_query = search_query[:-1]    
 
     data = retrieve_json(database_url + search_query)
+    
+    if data == None:
+        return jsonify({})
 
     if(params_dict['disease'] == ''):
         params_dict['disease'] == 'Todas doenças'
@@ -124,5 +127,5 @@ def main_page(name=None):
     return render_template('index.html')
 
 if __name__ == "__main__":    
-    # app.run(port=3000, debug=True)    
-    serve(app, port=80)
+    app.run(port=3000, debug=True)    
+    # serve(app, port=80)

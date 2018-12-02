@@ -6,9 +6,8 @@ def retrieve_json(this_url):
     with urllib.request.urlopen(this_url) as url:
         data = json.loads(url.read().decode())
         # Query vazia
-        if(data == []):
-            pprint(data)            
-            return None      
+        if(data == []):            
+            return None
         else:    
             return data
 
