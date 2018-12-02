@@ -131,10 +131,10 @@ function show_search(id) {
 
 function response_api(data) {
     var message = "";
-    console.log(data);
+    clearAllCircleMarker();
 
     if (data.data == null) {
-        clearAllCircleMarker();
+        alert("Não há notícias disponíveis!");
     }
 
     var disease_item = "Todas as Doenças";
