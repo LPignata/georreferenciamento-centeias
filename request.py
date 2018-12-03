@@ -1,7 +1,7 @@
 import urllib.request, json 
 from pprint import pprint
 
-query_url = 'https://sala-de-situacao-bd.herokuapp.com/retrieve?'
+query_url = str(os.environ.get('DATABASE_URL'))
 
 def retrieve_json(this_url):
     with urllib.request.urlopen(this_url) as url:

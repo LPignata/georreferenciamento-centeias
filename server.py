@@ -12,7 +12,7 @@ logging.basicConfig(filename='static/entries.log', level=logging.ERROR)
 
 app = Flask(__name__, static_url_path='/static')
 
-database_url = 'https://sala-de-situacao-bd.herokuapp.com/retrieve?'
+database_url = str(os.environ.get('DATABASE_URL'))
 
 # parametros de filtragem
 params_dict = {'disease': '', 'globe': '', 'data_begin': '', 'data_end': ''}
@@ -127,5 +127,5 @@ def main_page(name=None):
     return render_template('index.html')
 
 if __name__ == "__main__":    
-    app.run(port=3000, debug=True)    
-    # serve(app, port=80)
+    # app.run(port=3000, debug=True)    
+    serve(app, port=5000)

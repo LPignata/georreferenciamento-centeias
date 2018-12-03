@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 LABEL MAINTAINER="Léo Moraes leo.ms097@gmail.com"
 
@@ -22,7 +22,7 @@ RUN sudo apt-get install -y python-pip python-dev
 
 RUN sudo -s
 
-EXPOSE 80
+EXPOSE 5000
 
 COPY ./requirements.txt /app/requirements.txt
 
@@ -36,7 +36,8 @@ COPY . /app
 
 # ENTRYPOINT [ "python3" ]
 
-CMD ["sudo","python3","server.py"]
+CMD ["sudo", "-E","python3","server.py"]
 
 # Comandos: sudo docker build -t <nome>:latest .
 #           sudo docker run -d -it -p 80:80 <nome>:latest
+
