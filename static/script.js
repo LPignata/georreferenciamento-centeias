@@ -3,6 +3,13 @@ var countries = new Array();
 var estates = new Array();
 var urls = new Array();
 
+function isEmpty(array) {
+    return !(array != "undefined"
+    && array != null
+    && array.length != null
+    && array.length > 0);
+}
+
 $.urlParam = function(name){ 
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href); 
     if (results==null) { return null; } 
@@ -79,6 +86,7 @@ function fill_estates_map(data) {
 }
 
 function fill_select_diseases(data) {
+    if (isEmpty(data)) alert("No momento não há notícias a serem mostradas, tente novamente em outra hora!");
     data.diseases.forEach(element => {
         var disease = jsUcfirst(element);
         $('#select-disease').append($('<option>', {
