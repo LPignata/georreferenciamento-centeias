@@ -3,13 +3,6 @@ var countries = new Array();
 var estates = new Array();
 var urls = new Array();
 
-function isEmpty(array) {
-    return !(array != "undefined"
-    && array != null
-    && array.length != null
-    && array.length > 0);
-}
-
 $.urlParam = function(name){ 
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href); 
     if (results==null) { return null; } 
@@ -86,30 +79,34 @@ function fill_estates_map(data) {
 }
 
 function fill_select_diseases(data) {
-    if (isEmpty(data)) alert("No momento não há notícias a serem mostradas, tente novamente em outra hora!");
-    data.diseases.forEach(element => {
-        var disease = jsUcfirst(element);
-        $('#select-disease').append($('<option>', {
-            value: element,
-            text: disease
-        }));
-    });
+    try {
+        data.diseases.forEach(element => {
+            var disease = jsUcfirst(element);
+            $('#select-disease').append($('<option>', {
+                value: element,
+                text: disease
+            }));
+        });
 
-    // Insere valores dos parâmetros
-    if ($.urlParam('disease') != '' && $.urlParam('disease') != null) {
-        $("#select-disease").val($.urlParam('disease'));
-    }
-    if ($.urlParam('globe') != '' && $.urlParam('globe') != null) {
-        $("#" + $.urlParam('globe')).prop('checked', true);
-    }
-    if ($.urlParam('data_begin') != '' && $.urlParam('data_begin') != null) {
-        $("#date-begin").val($.urlParam('data_begin'));
-    }
-    if ($.urlParam('data_end') != '' && $.urlParam('data_end') != null) {
-        $("#date-end").val($.urlParam('data_end'));
-    }
+        // Insere valores dos parâmetros
+        if ($.urlParam('disease') != '' && $.urlParam('disease') != null) {
+            $("#select-disease").val($.urlParam('disease'));
+        }
+        if ($.urlParam('globe') != '' && $.urlParam('globe') != null) {
+            $("#" + $.urlParam('globe')).prop('checked', true);
+        }
+        if ($.urlParam('data_begin') != '' && $.urlParam('data_begin') != null) {
+            $("#date-begin").val($.urlParam('data_begin'));
+        }
+        if ($.urlParam('data_end') != '' && $.urlParam('data_end') != null) {
+            $("#date-end").val($.urlParam('data_end'));
+        }
 
-    request_api();
+        request_api();
+    }
+    catch (err) {
+        alert("No momento não há notícias a serem mostradas, tente novamente em outra hora!");
+    }
 }
 
 function fill_urls(e) {
