@@ -1,9 +1,11 @@
 import urllib.request, json 
 from pprint import pprint
+import ssl
 
 def retrieve_json(this_url):
     # Pega um Json do banco de dados
-    with urllib.request.urlopen(this_url) as url:
+    context = ssl._create_unverified_context()    
+    with urllib.request.urlopen(this_url, context=context) as url:
         data = json.loads(url.read().decode())
         # Query vazia
         if(data == []):            
@@ -14,6 +16,8 @@ def retrieve_json(this_url):
 # Retorna as doencas disponiveis no banco
 def available_diseases(url):
     data = retrieve_json(url)
+    if data == None:
+        return {}
     array = []
     dic = {}
     for result in data:

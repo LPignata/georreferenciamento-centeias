@@ -12,7 +12,7 @@ logging.basicConfig(filename='static/entries.log', level=logging.ERROR)
 
 app = Flask(__name__, static_url_path='/static')
 
-database_url = str(os.environ.get('DATABASE_URL'))
+database_url = "https://news-banco.centeias.net/retrieve?"
 
 # parametros de filtragem
 params_dict = {'disease': '', 'globe': '', 'data_begin': '', 'data_end': ''}
@@ -62,7 +62,11 @@ def retrieve_estates():
 
 @app.route('/get_database_diseases')
 def get_database_diseases():
-    return jsonify(available_diseases(database_url))
+    data = available_diseases(database_url)
+    if data == None:
+        return {}
+    else:
+        return jsonify(data)
 
 @app.route('/get_database_search')
 def get_database_search():
@@ -99,11 +103,13 @@ def get_database_search():
     if(params_dict['disease'] == ''):
         params_dict['disease'] == 'Todas doenças'
 
+
+    print(jsonify(process_json(data, params_dict['globe'] == "countries", date, params_dict['disease'])))
     return jsonify(process_json(data, params_dict['globe'] == "countries", date, params_dict['disease']))
 
 # Testa se o banco está disponível
 def database_availability():
-    request = requests.get(database_url)    
+    request = requests.get(database_url, verify=False)
     return request.status_code == 200
 
 @app.route('/')
